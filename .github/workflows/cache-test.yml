@@ -12,14 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ✅ Step that primes the cache
       - name: prime-cache-054eabb
-        id: cache-step          # this gives the step an ID for later reference
+        id: cache-step
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip
+          path: ~/.cache
           key: cache-054eabb
 
-      # ✅ Step that reports the cache result
       - name: Show cache result
-        run: echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
+        run: |
+          echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
+
